@@ -4,228 +4,355 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shikhar for MPP Rep | No Sides. Just Students.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --hertie-blue: #0d47a1;
-            --hertie-red: #d32f2f;
-            --poster-orange: #ff9800;
-            --bg-light: #f5f5f5;
-            --text-dark: #1a1a1a;
+            --blue:#0d47a1; --blue-l:#1565c0; --red:#d32f2f;
+            --orange:#ff9800; --yellow:#ffd600;
+            --light:#f4f4f4; --dark:#111; --mid:#222; --white:#fff;
         }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark);line-height:1.75}
+        h1,h2,h3,h4{font-family:'Bangers',display;letter-spacing:2px;text-transform:uppercase}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        /* NAV */
+        nav{background:var(--dark);padding:.75rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;border-bottom:4px solid var(--orange)}
+        .logo{font-family:'Bangers',display;font-size:1.6rem;color:var(--white);letter-spacing:3px}
+        .logo span{color:var(--orange)}
+        nav ul{list-style:none;display:flex;gap:1.2rem;flex-wrap:wrap}
+        nav ul li a{color:rgba(255,255,255,.8);text-decoration:none;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:1px;transition:color .2s}
+        nav ul li a:hover{color:var(--orange)}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+        /* HERO */
+        .hero{background:var(--blue);padding:5rem 2rem 4rem;text-align:center;border-bottom:14px solid var(--red);position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:350px solid transparent;border-right:350px solid transparent;border-top:500px solid var(--red);opacity:.35}
+        .hero-eyebrow{color:var(--orange);font-weight:800;font-size:.9rem;letter-spacing:5px;text-transform:uppercase;margin-bottom:.5rem;position:relative;z-index:1}
+        .hero h1{font-size:clamp(4.5rem,14vw,11rem);color:var(--white);text-shadow:6px 6px 0 var(--red);line-height:.9;position:relative;z-index:1}
+        .hero-sub{font-family:'Bangers',display;font-size:clamp(1.2rem,3.5vw,2rem);color:var(--orange);letter-spacing:3px;margin-top:1.2rem;position:relative;z-index:1}
+        .hero-tagline{display:inline-block;background:var(--white);color:var(--blue);font-weight:900;font-size:1rem;padding:.5rem 2rem;margin-top:1.5rem;border-radius:3px;letter-spacing:3px;text-transform:uppercase;position:relative;z-index:1}
 
-        /* Typography */
-        h1, h2, h3 {
-            font-family: 'Bangers', display;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        /* LAYOUT */
+        .section{max-width:900px;margin:0 auto;padding:4.5rem 2rem}
+        .section-title{font-size:clamp(2rem,5vw,3.2rem);color:var(--blue);margin-bottom:1.5rem;border-bottom:5px solid var(--orange);padding-bottom:.5rem;display:inline-block}
+        .section-intro{font-size:1.05rem;margin-bottom:2rem;color:#333}
 
-        h1 {
-            font-size: 5rem;
-            color: white;
-            line-height: 1;
-            text-shadow: 4px 4px 0px var(--hertie-red);
-        }
+        /* CALLOUT */
+        .callout{background:var(--white);border:3px solid var(--blue);box-shadow:7px 7px 0 var(--blue);padding:2.2rem;border-radius:8px;margin-bottom:2rem}
+        .callout p+p{margin-top:1rem}
+        .callout.orange{border-color:var(--orange);box-shadow:7px 7px 0 var(--orange)}
 
-        h2 {
-            font-size: 3.5rem;
-            color: var(--hertie-blue);
-            margin-bottom: 1.5rem;
-        }
+        /* WHO CARDS */
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+        .who-card{background:var(--dark);color:var(--white);padding:2rem;border-radius:8px;border-left:6px solid var(--orange)}
+        .who-card h3{font-size:1.6rem;color:var(--orange);margin-bottom:.8rem}
+        .who-card p{font-size:.93rem;color:#ccc}
 
-        .highlight-text {
-            color: var(--poster-orange);
-            font-family: 'Bangers', display;
-            font-size: 2.5rem;
-        }
+        /* PLATFORM PILLARS */
+        .pillar{background:var(--white);border:3px solid var(--red);box-shadow:6px 6px 0 var(--red);padding:2.5rem;border-radius:8px;margin-bottom:2.5rem;transition:transform .2s}
+        .pillar:hover{transform:translateY(-4px)}
+        .pillar-header{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:1.5rem}
+        .pillar-number{font-family:'Bangers',display;font-size:4rem;color:var(--red);opacity:.18;line-height:1;flex-shrink:0}
+        .pillar-header h3{font-size:2.2rem;color:var(--blue);line-height:1}
+        .pillar-header .pillar-tag{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-top:.3rem}
+        .pillar p{font-size:.97rem;margin-bottom:1rem}
+        .pillar ul{padding-left:1.2rem;margin-bottom:1rem}
+        .pillar ul li{font-size:.95rem;margin-bottom:.45rem}
+        .pillar-quote{background:var(--light);border-left:5px solid var(--orange);padding:1rem 1.5rem;font-style:italic;font-size:.9rem;color:#555;border-radius:0 6px 6px 0;margin-top:1.2rem}
 
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
+        /* FULL WIDTH BLUE */
+        .fw-blue{background:var(--blue);color:var(--white);padding:5rem 2rem;border-top:12px solid var(--red);border-bottom:12px solid var(--red)}
+        .fw-blue .inner{max-width:900px;margin:0 auto}
+        .fw-blue .section-title{color:var(--orange);text-shadow:2px 2px 0 rgba(0,0,0,.3);border-bottom-color:var(--orange)}
+        .fw-blue p{font-size:1rem;margin-bottom:1.2rem;color:rgba(255,255,255,.88)}
+        .fw-blue strong{color:var(--orange)}
+        .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+        .stance-card{background:rgba(255,255,255,.09);border:2px solid rgba(255,255,255,.2);border-top:5px solid var(--orange);padding:1.5rem;border-radius:6px}
+        .stance-card h3{font-size:1.45rem;color:var(--orange);margin-bottom:.8rem;line-height:1.1}
+        .stance-card p{font-size:.9rem}
 
-        /* Layout Sections */
-        header {
-            background-color: var(--hertie-blue);
-            padding: 6rem 2rem;
-            text-align: center;
-            border-bottom: 15px solid var(--hertie-red);
-        }
+        /* FULL WIDTH DARK */
+        .fw-dark{background:var(--dark);color:var(--white);padding:5rem 2rem;border-top:8px solid var(--orange);border-bottom:8px solid var(--orange)}
+        .fw-dark .inner{max-width:900px;margin:0 auto}
+        .fw-dark .section-title{color:var(--yellow);border-bottom-color:var(--yellow)}
+        .fw-dark p{font-size:1rem;margin-bottom:1.2rem;color:rgba(255,255,255,.85)}
+        .fw-dark strong{color:var(--yellow)}
+        .context-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+        .context-card{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.15);border-left:6px solid var(--yellow);padding:1.5rem;border-radius:6px}
+        .context-card h4{font-size:1.3rem;color:var(--yellow);margin-bottom:.7rem}
+        .context-card p{font-size:.9rem;margin-bottom:0}
+        .position-box{background:var(--blue);border:3px solid var(--yellow);padding:2rem;border-radius:8px;margin-top:2rem}
+        .position-box h3{font-size:2rem;color:var(--yellow);margin-bottom:1rem}
+        .position-box p{margin-bottom:1rem}
+        .position-box p:last-child{margin-bottom:0}
 
-        .subtitle {
-            color: var(--poster-orange);
-            font-weight: 900;
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            text-transform: uppercase;
-        }
+        /* CONNECT */
+        .connect-section{background:var(--mid);padding:5rem 2rem;text-align:center;border-top:8px solid var(--orange)}
+        .connect-section h2{font-family:'Bangers',display;font-size:3.5rem;color:var(--white);text-shadow:4px 4px 0 var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+        .connect-section .tagline-small{color:#aaa;font-size:1rem;margin-bottom:3rem}
+        .connect-grid{display:flex;justify-content:center;align-items:flex-start;gap:3rem;flex-wrap:wrap;max-width:700px;margin:0 auto}
+        .qr-box{background:var(--white);padding:1rem;border-radius:8px;border:5px solid var(--orange);box-shadow:6px 6px 0 var(--orange)}
+        .qr-box img{display:block;width:160px;height:160px}
+        .qr-label{font-weight:800;font-size:.75rem;text-align:center;margin-top:.6rem;color:var(--dark);text-transform:uppercase;letter-spacing:2px}
+        .contact-box{background:rgba(255,255,255,.05);border:2px solid var(--orange);padding:2rem 2.5rem;border-radius:8px;text-align:left;max-width:340px}
+        .contact-box h3{font-size:1.8rem;color:var(--orange);margin-bottom:.5rem}
+        .contact-box p{color:#bbb;font-size:.9rem}
+        .contact-box a{display:inline-block;margin-top:1rem;color:var(--orange);font-weight:700;font-size:.95rem;text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:2px}
+        .cafeteria-badge{background:var(--red);color:var(--white);font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:2px;padding:.4rem 1rem;border-radius:4px;display:inline-block;margin-top:1rem}
 
-        section {
-            padding: 5rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        footer{background:var(--blue);border-top:6px solid var(--orange);padding:1.5rem 2rem;text-align:center;color:rgba(255,255,255,.65);font-size:.82rem}
+        footer strong{color:var(--orange)}
 
-        .bg-gray {
-            background-color: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 8px 8px 0px var(--hertie-blue);
-            margin: 3rem auto;
-            border: 3px solid var(--hertie-blue);
-        }
+        .fade-in{opacity:0;transform:translateY(25px);transition:opacity .55s ease,transform .55s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
 
-        /* Platform Grid */
-        .platform-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .platform-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .platform-card {
-            background: white;
-            border: 3px solid var(--hertie-red);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.2s;
-            box-shadow: 5px 5px 0px var(--hertie-red);
-        }
-
-        .platform-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .platform-card h3 {
-            font-size: 2rem;
-            color: var(--hertie-red);
-            margin-bottom: 1rem;
-        }
-
-        /* Chatbot Section */
-        .chat-section {
-            background-color: var(--hertie-blue);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-            border-top: 10px solid var(--poster-orange);
-        }
-
-        .chat-section h2 {
-            color: white;
-            text-shadow: 3px 3px 0px var(--hertie-red);
-        }
-
-        .chat-container {
-            background: white;
-            color: var(--text-dark);
-            max-width: 600px;
-            margin: 2rem auto;
-            border-radius: 12px;
-            padding: 2rem;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid var(--poster-orange);
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--text-dark);
-            color: white;
-            font-weight: bold;
+        @media(max-width:640px){
+            .two-col,.three-col,.context-grid{grid-template-columns:1fr}
+            nav ul{display:none}
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SHIKHAR</h1>
-        <div class="subtitle">For MPP Student Rep</div>
-        <div class="highlight-text" style="margin-top: 1rem;">NO SIDES. JUST STUDENTS.</div>
-    </header>
+<nav>
+    <div class="logo">SHIKHAR <span>FOR MPP REP</span></div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#crisis">The Crisis</a></li>
+        <li><a href="#gaza">Gaza & Germany</a></li>
+        <li><a href="#connect">Connect</a></li>
+    </ul>
+</nav>
 
-    <section id="manifesto">
-        <div class="bg-gray">
-            <h2>The System Broke.</h2>
-            <p><strong>Let's be honest about what happened.</strong> The previous HSR passed a sweeping political resolution without asking you. The school leadership condemned it publicly without talking to the representatives first. Neither side handled it well, and the student body was left dealing with the fallout.</p>
-            <p>I am running because I believe Hertie deserves representatives who are genuinely accountable to the students—not to the administration, and not to any political movement.</p>
-            <p>I am not promising to do more things. I am promising that <strong>we will do things together.</strong> My mandate covers logistics; your collective mandate covers everything else.</p>
-        </div>
-    </section>
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-eyebrow">Hertie School · MPP Student Rep · Extraordinary Elections 2026</div>
+    <h1>SHIKHAR</h1>
+    <div class="hero-sub">For an HSR that truly represents you</div>
+    <div class="hero-tagline">No Sides. Just Students.</div>
+</div>
 
-    <section id="platform">
-        <h2 style="text-align: center;">My Platform</h2>
-        <div class="platform-grid">
-            
-            <div class="platform-card">
-                <h3>Direct Democracy</h3>
-                <p>Every substantive decision, resolution, or public statement will go to the student body first. I will hold regular, structured open assemblies. No more decisions made behind closed doors by 11 people in the name of 855.</p>
-            </div>
-
-            <div class="platform-card">
-                <h3>Real Constitution Reform</h3>
-                <p>The rules failed us. I will push for mandatory student consultation periods and supermajority thresholds before any resolution touching political or reputational matters can pass.</p>
-            </div>
-
-            <div class="platform-card">
-                <h3>Curriculum & Careers</h3>
-                <p>Hertie advertises to the Global South, but the curriculum remains heavily Eurocentric. Furthermore, stopping German support at B1 hurts your job prospects. We need an honest push for academic diversity and real language integration.</p>
-            </div>
-
-            <div class="platform-card">
-                <h3>AI in Academia</h3>
-                <p>We are a policy school, yet our assignments ignore that AI exists. I want to co-create a framework with faculty that treats AI as an augmentation tool in our education, not a cheating risk to be ignored.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="bds">
-        <div class="bg-gray" style="border-color: var(--poster-orange); box-shadow: 8px 8px 0px var(--poster-orange);">
-            <h2 style="color: var(--poster-orange);">The BDS Question</h2>
-            <p>I believe in the moral seriousness of what motivated the resolution. I also believe a small policy school in Berlin is not the right vehicle for that cause, and acting like it is has caused concrete harm here.</p>
-            <p><strong>My position is simple:</strong> I will engage with school leadership to see if an amended, non-binding statement of human rights principles is feasible. If rescinding the resolution is the only institutional option, I will put that decision to the student body through an assembly. The decision belongs to the community, not me.</p>
-        </div>
-    </section>
-
-    <div class="chat-section">
-        <h2>Ask Shikhar AI</h2>
-        <p>Got questions about my platform? Ask my custom AI assistant below.</p>
-        <div class="chat-container">
-            <p>[ Embed your AI Chatbot iframe here ]<br><span style="font-weight: normal; font-size: 0.9rem; color: #666;">(Use platforms like Chatbase or CustomGPT to easily embed an agent trained on your platform)</span></p>
-        </div>
+<!-- WHY I'M RUNNING -->
+<section id="about" class="section fade-in">
+    <h2 class="section-title">Why I'm Running</h2>
+    <div class="callout">
+        <p>The HSR passed a consequential resolution in the name of 855 students without asking them. The school leadership's response — a rapid public disavowal with no prior outreach to those same student representatives — was equally inadequate. One side acted without consent; the other managed the fallout without engagement. <strong>Neither was good enough.</strong></p>
+        <p>I'm running to build something different: a representative structure that asks students first and stays honest about what it can and cannot do. I'm also running to address dysfunction that existed long before this crisis — curriculum gaps, career preparation gaps, and a school-wide silence on AI in academia that I think is genuinely embarrassing for a policy institution.</p>
     </div>
 
-    <footer>
-        <p>Shikhar Agarwal for MPP Rep • Extraordinary Elections March 2026</p>
-    </footer>
+    <!-- WHO I AM -->
+    <h2 class="section-title" style="margin-top:3.5rem;" id="aboutme">Who I Am</h2>
+    <p class="section-intro">Before Hertie, I spent six years building international movements, designing participatory governance processes, and co-founding organizations from scratch — across India, the Netherlands, West Africa, and online. AI governance is where I am heading next, because I believe it is the most powerful lever available for the systemic change I have spent my career working toward.</p>
 
+    <div class="two-col">
+        <div class="who-card">
+            <h3>Movement Building</h3>
+            <p>Built and ran international advocacy campaigns engaging thousands of volunteers across continents. Advised coalitions on decentralised governance and coalition architecture. Helped grow Climate 2025 from a small network into a global movement infrastructure operating across dozens of countries and continents.</p>
+        </div>
+        <div class="who-card">
+            <h3>Governance & Coalitions</h3>
+            <p>Designed multi-stakeholder participatory processes — bringing together dozens of organizations and hundreds of people to co-build shared infrastructure. Negotiated complex cross-sector partnerships across five countries. This is the work I find most directly relevant to what a student representative should actually do.</p>
+        </div>
+        <div class="who-card">
+            <h3>Social Entrepreneurship</h3>
+            <p>Co-founded Prisma to incubate regenerative businesses and governance processes, including running a social enterprise hackathon in Ghana. Built non-profit arms, secured multi-year operational funding, and managed programmes across Africa, Europe, and Asia.</p>
+        </div>
+        <div class="who-card">
+            <h3>Now: AI Governance</h3>
+            <p>Pursuing an MPP at Hertie focused on AI governance and technology policy. Founded the Hertie AI Policy Initiative (HAIPI) — a student-led space for rigorous AI policy debate, built from scratch. AI is not a pivot; it is the next chapter of the same commitment to systemic change.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PLATFORM -->
+<section id="platform" class="section fade-in">
+    <h2 class="section-title">My Full Platform</h2>
+    <p class="section-intro">Four pillars. Each grounded in a real gap I've experienced or heard from fellow students. None conditional on what the school leadership approves of.</p>
+
+    <div class="pillar">
+        <div class="pillar-header">
+            <div class="pillar-number">01</div>
+            <div>
+                <div class="pillar-tag">Representation</div>
+                <h3>Direct Democracy as the Default</h3>
+            </div>
+        </div>
+        <p>The previous HSR's failure was not the content of the resolution — it was the process. A small coordinated group made a consequential decision for 855 students without asking them. That is a structural problem and it will happen again unless we change how the HSR operates.</p>
+        <p><strong>Every substantive decision</strong> — any resolution, public statement, or contested position — goes to students through an open assembly before any action is taken. I coordinate and facilitate. The student body decides.</p>
+        <ul>
+            <li>Regular assemblies on a fixed schedule — not just crisis responses</li>
+            <li>Advance notice and written submissions for each agenda item</li>
+            <li>Published records of decisions and reasoning after every meeting</li>
+            <li>Active collaboration with student groups outside the HSR to share the load</li>
+        </ul>
+        <div class="pillar-quote">"A representative who decides for you is a manager. A representative who decides with you is an actual representative."</div>
+    </div>
+
+    <div class="pillar">
+        <div class="pillar-header">
+            <div class="pillar-number">02</div>
+            <div>
+                <div class="pillar-tag">Governance</div>
+                <h3>Constitutional Reform With Real Teeth</h3>
+            </div>
+        </div>
+        <p>The HSR Constitution has no meaningful guardrails against political capture. Any small coordinated group can push through a resolution claiming to speak for the whole student body. That changes.</p>
+        <ul>
+            <li><strong>Mandatory consultation periods</strong> before any political or reputational resolution can be voted on</li>
+            <li><strong>Supermajority thresholds</strong> for statements made in the name of the entire student body</li>
+            <li><strong>Student-led drafting process</strong> — not a working group that submits proposals to administration for approval</li>
+            <li><strong>Mandate boundaries grounded in the actual statutes</strong> — not the HSL's interpretation of them</li>
+        </ul>
+        <p>On the HSL's claim that constitutional amendments require their approval: the amendment process is laid out in the constitution itself. Student self-governance subject to administrative veto is not self-governance.</p>
+        <div class="pillar-quote">"Reform that requires approval from the party you're reforming against isn't reform. It's permission-seeking."</div>
+    </div>
+
+    <div class="pillar">
+        <div class="pillar-header">
+            <div class="pillar-number">03</div>
+            <div>
+                <div class="pillar-tag">Academic Quality</div>
+                <h3>Curriculum, Careers & The Global South Gap</h3>
+            </div>
+        </div>
+        <p>Hertie recruits globally but teaches primarily European contexts. For a large share of its student body, there is a genuine gap between what the school promises and what it delivers.</p>
+        <p><strong>On curriculum:</strong> A student-faculty working group to open an honest, evidence-based conversation about course offerings, case studies, and reading lists — not to lower standards, but to make them genuinely global rather than Eurocentric by default.</p>
+        <p><strong>On careers:</strong> German language support stops at B1. B1 does not get you a job in Germany. I will push for expanded language support tied to real employability — B2/C1 subsidies, career services that reflect international paths, and honest pre-arrival expectation-setting for international students.</p>
+        <ul>
+            <li>Student-faculty curriculum working group with published findings</li>
+            <li>Career panels specifically for non-German/non-EU paths</li>
+            <li>B2/C1 language subsidies, not just B1 scholarships</li>
+            <li>Course content feedback mechanisms beyond professor ratings</li>
+        </ul>
+    </div>
+
+    <div class="pillar">
+        <div class="pillar-header">
+            <div class="pillar-number">04</div>
+            <div>
+                <div class="pillar-tag">Future of Education</div>
+                <h3>AI in Academia: Stop Pretending</h3>
+            </div>
+        </div>
+        <p>Hertie's assignments are designed as if AI doesn't exist. Students use it daily. The institution has no coherent response. For a school that claims to train governance leaders who will regulate and be reshaped by AI, this is a pedagogical failure — not just an integrity problem.</p>
+        <p>I founded HAIPI because this conversation needs to happen rigorously and student-led. As MPP rep, I will push for:</p>
+        <ul>
+            <li>A <strong>student-faculty co-design process</strong> for an AI use framework — collaborative norms, not top-down policy</li>
+            <li>Assignment redesign that demands analytical reasoning, not just output generation</li>
+            <li>An audit of which current assignments are AI-trivial, with redesign proposals submitted to faculty</li>
+            <li>Open seminars bringing external speakers into the school on AI and higher education</li>
+        </ul>
+        <div class="pillar-quote">"If your policy school trains future AI regulators but its assignments can be completed by the systems they'll regulate, something has gone seriously wrong."</div>
+    </div>
+</section>
+
+<!-- HSR CRISIS -->
+<div class="fw-blue fade-in" id="crisis">
+    <div class="inner">
+        <h2 class="section-title">The HSR Crisis: An Honest Assessment</h2>
+        <p>No other candidate is saying this plainly: <strong>both sides of this crisis bear responsibility.</strong></p>
+
+        <div class="three-col">
+            <div class="stance-card">
+                <h3>What The HSR Got Wrong</h3>
+                <p>Passing a political resolution without student consultation was a representational failure. So was refusing to host good-faith debate despite months of visible community conflict, and aligning the formal representative body with a single political faction on one of the most divisive issues in German public life.</p>
+            </div>
+            <div class="stance-card">
+                <h3>What The HSL Got Wrong</h3>
+                <p>The first move was a public disavowal — not a private conversation. No outreach to understand the student representatives' position, no attempt to mediate before going public. Fast for reputation management. Dismissive of students. A poor precedent for how this institution handles internal disagreement.</p>
+            </div>
+            <div class="stance-card">
+                <h3>What Needs To Change</h3>
+                <p>A student council with no consultation guardrails. A school leadership that treats student governance as a reputational risk rather than a community to engage. Both are structural problems that will repeat unless directly addressed — regardless of who wins this election.</p>
+            </div>
+        </div>
+
+        <hr style="border-color:rgba(255,255,255,.15);margin:2.5rem 0;">
+
+        <h3 style="font-size:2rem;color:var(--orange);margin-bottom:1rem;">On The BDS Resolution</h3>
+        <p>I will not unilaterally rescind or uphold it. Both options, taken without student input, repeat the same error that created this crisis.</p>
+        <p><strong>First:</strong> Engage the HSL honestly — what is institutionally feasible given Hertie's position as a German university, its legal obligations, and its funding context?</p>
+        <p><strong>Second:</strong> If an amended, non-binding human rights principles statement is credible, I'll bring it to a student assembly for decision.</p>
+        <p><strong>Third:</strong> If rescission is the only viable institutional path, that decision goes to the student body through a transparent assembly — with constraints explained clearly. The community decides, not me.</p>
+        <p>Realism about what a student representative can actually achieve is not weakness. It is the minimum honesty I owe you.</p>
+    </div>
+</div>
+
+<!-- GAZA / GERMANY -->
+<div class="fw-dark fade-in" id="gaza">
+    <div class="inner">
+        <h2 class="section-title">Gaza, Germany & What I Actually Think</h2>
+        <p>Vague positioning on this is a form of dishonesty. Here is where I actually stand.</p>
+
+        <div class="context-grid">
+            <div class="context-card">
+                <h4>Germany's Specific Context</h4>
+                <p>Germany's historical responsibility for the Holocaust has created a specific legal and political environment. The Bundestag declared BDS antisemitic in 2019. Germany's domestic intelligence agency classified BDS as a suspected extremist threat. German universities with BDS-aligned statements have faced funding reviews and serious political pressure. This is the environment Hertie operates in — and no student representative can simply wish it away.</p>
+            </div>
+            <div class="context-card">
+                <h4>The Moral Stakes</h4>
+                <p>None of the above means Gaza is not a profound moral concern — it is. Students who feel urgency about this are responding to something real. The question is not whether the concern is legitimate. It clearly is. The question is whether a student government's institutional endorsement of a specific political movement is the right vehicle for it, particularly in Germany.</p>
+            </div>
+            <div class="context-card">
+                <h4>The Free Speech Dimension</h4>
+                <p>Every Hertie student has every right to express their views on Gaza, Israel, and BDS — clearly, loudly, as a private individual. What the HSR did was different: it used the institutional voice of the student body to endorse a political movement without that student body's consent. The question is not whether students can speak about Palestine. Of course they can. The question is whether 11 representatives can speak for 855.</p>
+            </div>
+            <div class="context-card">
+                <h4>What Student Representation Can Do</h4>
+                <p>Israel's decisions are driven by geopolitical forces that have nothing to do with what a small German policy school's student council says. The resolution will not change outcomes in Gaza. What it did change — concretely — was the atmosphere in our community, the reputation of our institution, and the experience of students whose identities were implicated in a statement made without their consent. These are the things I can actually address.</p>
+            </div>
+        </div>
+
+        <div class="position-box">
+            <h3>My Position, Plainly Stated</h3>
+            <p>I empathize with the motivation behind the resolution. The students who passed it were responding to something morally serious. Using the institutional voice of a German policy school's student body to endorse BDS — without consent, without space for debate, and without understanding the legal and political constraints of this country — was still the wrong call.</p>
+            <p>The school leadership's response was also wrong. Going public before attempting any direct engagement treats student governance as a liability rather than a community. That is not how a healthy institution handles internal conflict.</p>
+            <p><strong>My commitment:</strong> Create proper spaces for this conversation — moderated, respectful, with genuine room for disagreement. Engage the HSL honestly about what is feasible. Put any formal decision about the resolution to the student body directly. This is not avoidance. It is the only process that is democratically legitimate.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONNECT & VOTE -->
+<div class="connect-section fade-in" id="connect">
+    <h2>Make Your Voice Count</h2>
+    <p class="tagline-small">Reach out directly anytime via email or WhatsApp.</p>
+
+    <div class="connect-grid">
+        <!-- VOTE BOX (The missing piece) -->
+        <div class="contact-box" style="border-color: var(--yellow);">
+            <h3 style="color: var(--yellow);">How to Vote</h3>
+            <p style="color: #fff; font-weight: bold; margin-bottom: 0.5rem; font-size: 1rem;">Extraordinary Elections</p>
+            <p style="margin-bottom: 0.3rem;"><strong>Opens:</strong> Wed, 25 March</p>
+            <p style="margin-bottom: 0.3rem;"><strong>Closes:</strong> Sun, 29 March (23:59)</p>
+            <p style="margin-bottom: 1rem;"><strong>Platform:</strong> Online via Moodle</p>
+            <a href="https://moodle.hertie-school.org/" target="_blank" style="color: var(--yellow); border-bottom-color: var(--yellow);">Go to Moodle</a>
+        </div>
+
+        <!-- CONTACT BOX -->
+        <div class="contact-box">
+            <h3>Get In Touch</h3>
+            <p style="margin-bottom: 1rem;">Questions? Challenges? Disagreements? That is exactly the kind of conversation I want to have.</p>
+
+            <p style="margin-bottom: 0.2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #fff;">Email</p>
+            <a href="mailto:s.agarwal@students.hertie-school.org" style="font-size: 0.85rem;">s.agarwal@students.hertie-school.org</a>
+
+            <p style="margin-top: 1rem; margin-bottom: 0.2rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #fff;">WhatsApp / Phone</p>
+            <a href="tel:+4915228818326" style="font-size: 0.95rem;">+49 152 2881 8326</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <strong>Shikhar Agarwal</strong> · MPP Student Representative Candidate · Hertie School Extraordinary Elections · March 2026
+</footer>
+
+<script>
+    const obs = new IntersectionObserver(
+        entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+        {threshold:.08}
+    );
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
