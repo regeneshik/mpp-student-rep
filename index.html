@@ -86,6 +86,69 @@
         .position-box p{margin-bottom:1rem}
         .position-box p:last-child{margin-bottom:0}
 
+        /* PLATFORM SNAPSHOT */
+.snapshot {
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    border-bottom: 6px solid var(--orange);
+}
+.snapshot-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.2rem;
+}
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.snap-card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-top: 4px solid var(--orange);
+    padding: 1rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.snap-card:hover {
+    background: rgba(255,153,0,0.12);
+    transform: translateY(-3px);
+}
+.snap-card .snap-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+.snap-card .snap-title {
+    font-family: 'Bangers', display;
+    font-size: 1.05rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+}
+.snap-card .snap-desc {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+}
+@media(max-width: 640px) {
+    .snapshot-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width: 380px) {
+    .snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
         /* CONNECT */
         .connect-section{background:var(--mid);padding:5rem 2rem;text-align:center;border-top:8px solid var(--orange)}
         .connect-section h2{font-family:'Bangers',display;font-size:3.5rem;color:var(--white);text-shadow:4px 4px 0 var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
@@ -132,6 +195,44 @@
     <div class="hero-sub">For an HSR that truly represents you</div>
     <div class="hero-tagline">No Sides. Just Students.</div>
 </div>
+
+<!-- PLATFORM SNAPSHOT -->
+<div class="snapshot">
+    <div class="snapshot-label">Platform at a glance — click any card to read more</div>
+    <div class="snapshot-grid">
+        <a href="#platform" class="snap-card">
+            <span class="snap-icon">🗳️</span>
+            <div class="snap-title">Direct Democracy</div>
+            <div class="snap-desc">Students vote on every major HSR decision</div>
+        </a>
+        <a href="#platform" class="snap-card">
+            <span class="snap-icon">📜</span>
+            <div class="snap-title">Constitution Reform</div>
+            <div class="snap-desc">Guardrails against political capture</div>
+        </a>
+        <a href="#platform" class="snap-card">
+            <span class="snap-icon">🌍</span>
+            <div class="snap-title">Curriculum Gap</div>
+            <div class="snap-desc">Hertie teaches Europe. Its students are global.</div>
+        </a>
+        <a href="#platform" class="snap-card">
+            <span class="snap-icon">🤖</span>
+            <div class="snap-title">AI in Academia</div>
+            <div class="snap-desc">Stop pretending AI isn't in every assignment</div>
+        </a>
+        <a href="#crisis" class="snap-card">
+            <span class="snap-icon">⚖️</span>
+            <div class="snap-title">The Crisis</div>
+            <div class="snap-desc">Both the HSR and HSL got this wrong</div>
+        </a>
+        <a href="#gaza" class="snap-card">
+            <span class="snap-icon">🕊️</span>
+            <div class="snap-title">Gaza & Germany</div>
+            <div class="snap-desc">My honest, unvague position</div>
+        </a>
+    </div>
+</div>
+
 
 <!-- WHY I'M RUNNING -->
 <section id="about" class="section fade-in">
